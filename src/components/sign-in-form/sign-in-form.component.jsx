@@ -3,11 +3,7 @@ import {useState} from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 
-import {
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
-} from '../../utils/firebase/firebase.utils';
+import {signInAuthUserWithEmailAndPassword, signInWithGooglePopup,} from '../../utils/firebase/firebase.utils';
 
 import './sign-in-form.styles';
 import {SignUpContainer} from "./sign-in-form.styles";
@@ -33,7 +29,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       switch (error.code) {

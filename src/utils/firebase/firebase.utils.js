@@ -1,24 +1,15 @@
-import { initializeApp } from 'firebase/app';
+import {initializeApp} from 'firebase/app';
 import {
-  getAuth,
-  signInWithRedirect,
-  signInWithPopup,
-  GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
+  getAuth,
+  GoogleAuthProvider,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
 } from 'firebase/auth';
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  collection,
-  writeBatch,
-  query,
-  getDocs,
-} from 'firebase/firestore';
+import {collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch,} from 'firebase/firestore';
 
 const firebaseConfig = {
 
@@ -29,7 +20,7 @@ const firebaseConfig = {
   messagingSenderId: "388731946286",
   appId: "1:388731946286:web:c249138b79a2ab42ff26bf"
 };
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -66,13 +57,11 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  return querySnapshot.docs.reduce((acc, docSnapshot) => {
     const {title, items} = docSnapshot.data();
     acc[title.toLowerCase()] = items;
     return acc;
   }, {});
-
-  return categoryMap;
 }
 
 export const createUserDocumentFromAuth = async (

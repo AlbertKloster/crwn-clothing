@@ -68,10 +68,10 @@ export const CartProvider = ({ children }) => {
   const value = {
     isCartOpen,
     setIsCartOpen,
+    cartItems,
     addItemToCart,
     removeItemFromCart,
     clearItemFromCart,
-    cartItems,
     cartCount,
     cartTotal,
   };
