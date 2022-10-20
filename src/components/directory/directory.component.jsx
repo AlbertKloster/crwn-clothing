@@ -1,13 +1,13 @@
-import DirectoryItem from "../directory-item/directory-item.component";
-import "./directory.styles";
-import {DirectoryContainer} from "./directory.styles";
+import DirectoryItem from '../directory-item/directory-item.component';
+
+import { DirectoryContainer } from './directory.styles';
 
 const categories = [
   {
     id: 1,
     title: 'hats',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    route: 'shop/hats'
+    route: 'shop/hats',
   },
   {
     id: 2,
@@ -35,15 +35,14 @@ const categories = [
   },
 ];
 
-
 const Directory = () => {
   return (
     <DirectoryContainer>
-      {categories.map(category => (
-        <DirectoryItem key={category.id} category={category}/>
+      {categories.map((category) => (
+        <DirectoryItem key={category.id} category={category} />
       ))}
     </DirectoryContainer>
-  )
-}
+  );
+};
 
 export default Directory;

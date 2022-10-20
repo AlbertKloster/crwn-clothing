@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BackgroundImage = styled.div`
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-image: ${({imageUrl}) => `url(${imageUrl})`};
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 export const Body = styled.div`
@@ -17,13 +17,13 @@ export const Body = styled.div`
   justify-content: center;
   border: 1px solid black;
   background-color: white;
-  opacity: .7;
+  opacity: 0.7;
   position: absolute;
-  
+
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
-    font-size: 26px;
+    font-size: 22px;
     color: #4a4a4a;
     text-transform: uppercase;
   }
@@ -45,24 +45,24 @@ export const DirectoryItemContainer = styled.div`
   margin: 0 7.5px 15px;
   overflow: hidden;
 
-  &:hover {
-    cursor: pointer;
-
-    & ${BackgroundImage} {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(.25, .45, .45, .95);
-    }
-
-    & ${Body} {
-      opacity: .9;
-    }
-  }
-
   &:first-child {
     margin-right: 7.5px;
   }
 
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    ${BackgroundImage} {
+      transform: scale(1.1);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
+    ${Body} {
+      opacity: 0.9;
+    }
   }
 `;
